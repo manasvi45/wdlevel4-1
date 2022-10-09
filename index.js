@@ -46,22 +46,40 @@ const todoList = () => {
   }
 
   const toDisplayableList = (list) => {
+      //console.log(list.length)
       str=""
     // Format the To-Do list here, and return the output string as per the format given above.
       for(let i=0;i<list.length;i++){
           if(list[i].completed===true){
+              if(i===list.length-1){
+                    str += "[ ] "+list[i].title
+                    }
+              else{
               str += "[x] "+list[i].title+"\n"
-          }
+
+          }}
           else if(list[i].dueDate===yesterday){
+              if(i===list.length-1){
+                  str += "[ ] "+list[i].title+" "+yesterday
+              }
+              else{
               str += "[ ] "+list[i].title+" "+yesterday+"\n"
-          }
+          }}
           else if(list[i].dueDate===tomorrow){
+              if(i===list.length-1){
+                  str += "[ ] "+list[i].title+" "+tomorrow
+              }
+              else{
               str += "[ ] "+list[i].title+" "+tomorrow+"\n"
-          }
+          }}
           else{
+              if(i===list.length-1){
+                  str += "[ ] "+list[i].title
+              }
+              else{
               str += "[ ] "+list[i].title+"\n"
-          }
-      }
+
+      }}}
       return str
   }
 
