@@ -25,7 +25,6 @@ describe("TodoList Test Suite", () => {
         title: "Test todo",
         completed: false,
         dueDate: tomorrow,
-        //console.log(dueDate),
       },
       {
         title: "Test todo",
@@ -37,7 +36,7 @@ describe("TodoList Test Suite", () => {
     add({
       title: "Test todo",
       completed: false,
-      dueDate: yesterday,
+      dueDate: today,
     });
 
     expect(all.length).toBe(todoItemCount + 1);
@@ -48,15 +47,15 @@ describe("TodoList Test Suite", () => {
     expect(all[0].completed).toBe(true);
   });
   test("Should check retrieval of overdue items", () => {
-    a = overdue();
-    expect(all[2].dueDate).toBe(a[0]["dueDate"]);
+    o = overdue();
+    expect(all[2].dueDate).toBe(o[0]["dueDate"]);
   });
   test("Should check retrieval of duetoday items", () => {
-    a = dueToday();
-    expect(all[0].dueDate).toBe(a[0]["dueDate"]);
+    t = dueToday();
+    expect(all[0].dueDate).toBe(t[0]["dueDate"]);
   });
   test("Should check retrieval of due later items", () => {
-    a = dueLater();
-    expect(all[1].dueDate).toBe(a[0]["dueDate"]);
+    l = dueLater();
+    expect(all[1].dueDate).toBe(l[0]["dueDate"]);
   });
 });
